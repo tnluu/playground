@@ -3,22 +3,22 @@ pipeline {
   stages {
     stage('prepare') {
       steps {
-        parallel(
-          "prepare": {
-            sh 'echo "Preparing for the day"'
-            echo 'pipeline started'
-            
-          },
-          "Check": {
-            sh 'echo "Checking if everything okay"'
-            
-          }
-        )
+        sh 'echo "Preparing for the day"'
+        echo 'pipeline started'
       }
     }
     stage('verify') {
       steps {
-        sh 'echo "ofcourse you must verify"'
+        parallel(
+          "verify": {
+            sh 'echo "ofcourse you must verify"'
+            
+          },
+          "Check": {
+            sh 'echo "checking"'
+            
+          }
+        )
       }
     }
     stage('shipit') {
