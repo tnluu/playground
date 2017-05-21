@@ -1,20 +1,9 @@
-pipeline {
- 
-  stages {
-    stage('Build') {
-      steps {
+stage('Build') {
         sh 'echo"building hex file"'
-      }
     }
-    stage('Calibrate') {
-      steps {
+stage('Calibrate') {
         sh 'echo "calibrating HEX file before the test"'
-      }
     }
-    stage('HITLoopTest') {
-      steps {
+stage('HITLoopTest') {
         sh 'echo "Testing HEX file"'
       }
-    }
-  }
-}
