@@ -5,7 +5,7 @@ pipeline {
       steps {
         parallel(
           "build": {
-            sh 'print "building SW"'
+            sh 'echo "building SW"'
             sleep 2
             
           },
