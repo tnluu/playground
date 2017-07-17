@@ -1,7 +1,7 @@
 pipeline {
   agent {
     docker {
-      image 'maven'
+      image 'maven:3.3.3'
       args '3.3.3'
     }
     
@@ -12,8 +12,5 @@ pipeline {
         sh 'mvn -version'
       }
     }
-  }
-  environment {
-    ad = 'ad'
   }
 }
