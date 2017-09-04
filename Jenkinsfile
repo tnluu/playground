@@ -1,14 +1,25 @@
 pipeline {
   agent {
-    docker {
-      image 'maven:3.3.3'
+    node {
+      label 'maven-jdk-8'
     }
     
   }
   stages {
-    stage('mystage') {
+    stage('Prepartion') {
       steps {
-        sh 'mvn -version'
+        git(url: 'https://github.com/jglick/simple-maven-project-with-tests.git', branch: 'master')
+      }
+    }
+    stage('Build') {
+      steps {
+        sh 'mvn -Dmaven.test.failure.ignore clean package'
+      }
+    }
+    stage('Result') {
+      steps {
+        junit '**/target/surefire-reports/TEST-*.xml'
+        archiveArtifacts 'target/*.jar'
       }
     }
   }
