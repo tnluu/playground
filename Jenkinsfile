@@ -10,6 +10,7 @@ pipeline {
       steps {
         git(url: 'https://github.com/jglick/simple-maven-project-with-tests.git', branch: 'master')
         sh 'echo "hello"'
+        sh 'echo "Add preparation step 1"'
       }
     }
     stage('Build') {
