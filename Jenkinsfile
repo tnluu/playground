@@ -14,16 +14,7 @@ pipeline {
     }
     stage('Build') {
       steps {
-        parallel(
-          "Build": {
-            sh 'mvn -Dmaven.test.failure.ignore clean package'
-            
-          },
-          "test": {
-            echo 'tested'
-            
-          }
-        )
+        sh 'mvn -Dmaven.test.failure.ignore clean package'
       }
     }
     stage('Result') {
