@@ -1,7 +1,7 @@
 pipeline {
   agent {
     node {
-      label 'maven:3.3.3'
+      label 'maven-3.3.3'
     }
     
   }
